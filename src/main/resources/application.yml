@@ -9,7 +9,8 @@ spring:
         time-zone: Asia/Seoul
     profiles:
         group:
-            "local": "core-local, messages"
+            "local": "local, messages"
+            "my-local": "my-local, messages"
     mvc:
         pathmatch:
             matching-strategy: ant_path_matcher
