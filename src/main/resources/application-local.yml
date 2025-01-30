@@ -6,15 +6,15 @@ spring:
             driver-class-name: org.postgresql.Driver
             jdbc-url: jdbc:postgresql://localhost:5432/study?targetServerType=primary
             read-only: false
-            username:
-            password:
+            username: study_user
+            password: study_user_pwd
     main-reader-datasource:
         hikari:
             driver-class-name: org.postgresql.Driver
-            jdbc-url: jdbc:postgresql://localhost:5432/study?targetServerType=preferSecondary&loadBalanceHosts=true
+            jdbc-url: jdbc:postgresql://localhost:5434/study?targetServerType=preferSecondary&loadBalanceHosts=true
             read-only: true
-            username:
-            password:
+            username: study_user
+            password: study_user_pwd
     jpa:
         hibernate:
             default_schema: board
@@ -32,20 +32,20 @@ spring:
     sql:
         init:
             mode: never
-#    data:
-#        redis:
-#            host: 127.0.0.1
-#            port: 6379
-#            lettuce:
-#                pool:
-#                    max-active: 15
-#                    max-idle: 8
-#                    min-idle: 3
-#                    max-wait: -1
-#                shutdown-timeout: 2000
-#            timeout: 3000
-#    cache:
-#        type: redis
+    data:
+        redis:
+            host: 127.0.0.1
+            port: 6379
+            lettuce:
+                pool:
+                    max-active: 15
+                    max-idle: 8
+                    min-idle: 3
+                    max-wait: -1
+                shutdown-timeout: 2000
+            timeout: 3000
+    cache:
+        type: redis
     servlet:
         multipart:
             max-file-size: 30MB

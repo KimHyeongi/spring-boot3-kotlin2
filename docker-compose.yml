@@ -1,0 +1,62 @@
+services:
+
+    main-writer-postgres:
+        image: bitnami/postgresql:13
+        container_name: study-writer-postgres
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRESQL_DATABASE: study
+            POSTGRESQL_USERNAME: study_user
+            POSTGRESQL_PASSWORD: study_user_pwd
+            POSTGRESQL_PGAUDIT_LOG: ALL
+            POSTGRESQL_REPLICATION_MODE: master
+            POSTGRESQL_REPLICATION_USER: study_user_ro
+            POSTGRESQL_REPLICATION_PASSWORD: study_user_ro_pwd
+            POSTGRESQL_MAX_CONNECTIONS: 3000
+
+    main-reader-postgres:
+        image: bitnami/postgresql:13
+        depends_on:
+            - main-writer-postgres
+        container_name: study-reader-postgres
+        restart: always
+        ports:
+            - "5434:5432"
+        environment:
+            POSTGRESQL_PASSWORD: study_user_pwd
+            POSTGRESQL_PGAUDIT_LOG: ALL
+            POSTGRESQL_MASTER_HOST: main-writer-postgres
+            POSTGRESQL_MASTER_PORT_NUMBER: 5432
+            POSTGRESQL_REPLICATION_MODE: slave
+            POSTGRESQL_REPLICATION_USER: study_user_ro
+            POSTGRESQL_REPLICATION_PASSWORD: study_user_ro_pwd
+            POSTGRESQL_MAX_CONNECTIONS: 3000
+
+    redis:
+        image: redis
+        container_name: study-redis
+        restart: always
+        ports:
+            - "6379:6379"
+        platform: linux/arm64/v8
+
+    localstack:
+        container_name: study-localstack
+        image: localstack/localstack:2.2.0
+        ports:
+            - "4566-4599:4566-4599"
+        environment:
+            - DEBUG=1
+            - USE_SSL=0
+            - AWS_CBOR_DISABLE=1
+            - DOCKER_HOST=unix:///var/run/docker.sock
+            - HOSTNAME=localstack
+            - SERVICES=s3, sqs
+            - AWS_ACCESS_KEY_ID=localstack
+            - AWS_SECRET_ACCESS_KEY=localstack
+            - AWS_DEFAULT_REGION=us-east-1
+        volumes:
+            - ${TEMPDIR:-/tmp/localstack}:/tmp/localstack
+            - /var/run/docker.sock:/var/run/docker.sock

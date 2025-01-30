@@ -45,9 +45,9 @@ abstract class AuditingEntity {
     var modifiedBy: String? = null
         protected set
 
-    fun setCreatedAndModified(nergetUserUuid: String) {
-        this.createdBy = nergetUserUuid
-        this.modifiedBy = nergetUserUuid
+    fun setCreatedAndModified(userUuid: String) {
+        this.createdBy = userUuid
+        this.modifiedBy = userUuid
     }
 
     fun setDeletedBoolean(deleted: Boolean) {
