@@ -13,8 +13,8 @@ spring:
             driver-class-name: org.postgresql.Driver
             jdbc-url: jdbc:postgresql://localhost:5432/study?targetServerType=preferSecondary&loadBalanceHosts=true
             read-only: true
-            username: admin
-            password: 1234
+            username:
+            password:
     jpa:
         hibernate:
             default_schema: board
