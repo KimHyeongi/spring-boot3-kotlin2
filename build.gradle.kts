@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     kotlin("jvm") version Versions.kotlin
     kotlin("plugin.spring") version Versions.kotlin
-    kotlin("plugin.jpa") version Versions.kotlin apply false
+    kotlin("plugin.jpa") version Versions.kotlin
     kotlin("plugin.noarg") version Versions.kotlin
     kotlin("plugin.allopen") version Versions.kotlin
     id("org.springframework.boot") version Versions.spring_boot
@@ -58,7 +58,6 @@ subprojects {
         implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin_stdlib}")
         implementation("io.github.oshai:kotlin-logging:${Versions.kotlin_logging}") // microutils -> oshai
         implementation("ch.qos.logback.access:common:${Versions.logback_common}")
-        implementation("ch.qos.logback:logback-core:${Versions.logback_classic}")
         implementation("ch.qos.logback:logback-classic:${Versions.logback_classic}")
         implementation("net.logstash.logback:logstash-logback-encoder:${Versions.logstash_logback_encoder}")
         testImplementation("org.junit.jupiter:junit-jupiter:${Versions.junit_jupiter}")
@@ -67,7 +66,7 @@ subprojects {
         testImplementation("io.kotest:kotest-runner-junit5-jvm:${Versions.kotest_version}")
         testImplementation("io.kotest:kotest-assertions-core:${Versions.kotest_version}")
         testImplementation("io.kotest.extensions:kotest-extensions-spring:${Versions.kotest_extensions_spring}")
-        testImplementation("io.kotest:kotest-runner-junit5")
+//        testImplementation("io.kotest:kotest-runner-junit5")
         testImplementation("io.mockk:mockk:${Versions.mock}")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
@@ -91,6 +90,7 @@ subprojects {
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         compilerOptions {
+            allWarningsAsErrors.set(true)
             freeCompilerArgs.add("-Xjsr305=strict")
             jvmTarget.set(JvmTarget.JVM_21)
         }
