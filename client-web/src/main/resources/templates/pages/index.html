@@ -1,0 +1,15 @@
+<html
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:th="http://www.thymeleaf.org"
+    layout:decorate="~{layouts/default_layout}"
+    lang="ko"
+>
+<section class="container page-container my-5 text-center main-content" layout:fragment="content">
+    <form th:action="@{/examples/summary}" method="post" role="form" id="form">
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
+</section>
+</html>
