@@ -11,8 +11,8 @@ spring:
         group:
             "local": "core-local, messages"
     mvc:
-        pathmatch:
-            matching-strategy: ant_path_matcher
+        async:
+            request-timeout: 10s
     main:
         allow-bean-definition-overriding: true
     messages:

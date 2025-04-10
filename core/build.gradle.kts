@@ -44,7 +44,6 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:${Versions.jackson}")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${Versions.jackson}")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${Versions.jackson}")
-    implementation("com.slack.api:slack-api-client:${Versions.slack}")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(testFixtures(project(":core")))

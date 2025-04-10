@@ -7,19 +7,19 @@ spring:
     application:
         name: admin-web
     session:
-        store-type: redis
         redis:
             flush-mode: on_save
     profiles:
         group:
             "local": "core-local"
-    mvc:
-        pathmatch:
-            matching-strategy: ant_path_matcher
+#    mvc:
+#        pathmatch:
+#            matching-strategy: ant_path_matcher # 2.6+ 에서 기본으로 권장 path_pattern_parser
     thymeleaf:
         cache: false
         check-template-location: true
         prefix: file:admin-web/src/main/resources/templates/
+#        prefix: classpath:templates/ # prod 환경은 classpath 로 한다.
         suffix: .html
         enabled: true
     main:

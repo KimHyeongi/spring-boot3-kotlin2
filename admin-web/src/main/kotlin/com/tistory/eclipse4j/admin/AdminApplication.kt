@@ -12,7 +12,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
         "com.tistory.eclipse4j.admin"
     ]
 )
-@EnableRedisHttpSession
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 1800)
 class AdminApplication
 
 fun main(args: Array<String>) {

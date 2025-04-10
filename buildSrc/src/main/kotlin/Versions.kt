@@ -28,7 +28,7 @@ object Versions {
     const val coroutine_version = "1.10.1"
     const val javers = "7.8.0"
     const val jackson = "2.18.2"
-    const val slack = "1.40.2"
+    const val slack = "1.45.3"
     const val langchain4j = "1.0.0-beta1"
     const val langchain4j_b = "1.0.0-alpha1"
     const val openfeign_querydsl_version = "6.10.1"
@@ -38,8 +38,8 @@ object Versions {
     const val spring_security = "6.2.3" // 실제 버전은 확인 필요
     const val spring_session = "3.2.1" // 실제 버전은 확인 필요
     // Thymeleaf
-    const val thymeleaf_extras = "3.1.2.RELEASE" // 실제 버전은 확인 필요
-    const val thymeleaf_layout = "3.3.0" // 실제 버전은 확인 필요
+    const val thymeleaf_extras = "3.1.3.RELEASE" // 실제 버전은 확인 필요
+    const val thymeleaf_layout = "3.4.0" // 실제 버전은 확인 필요
     // Firebase
     const val firebase_admin = "9.4.3"
     // Excel

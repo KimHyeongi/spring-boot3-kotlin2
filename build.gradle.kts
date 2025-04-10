@@ -53,6 +53,7 @@ subprojects {
     apply(plugin = "kotlin-allopen")
 
     dependencies {
+        implementation("com.slack.api:slack-api-client:${Versions.slack}")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin_stdlib}")
