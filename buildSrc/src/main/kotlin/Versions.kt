@@ -49,8 +49,7 @@ object Versions {
     const val commons_io = "2.18.0"
     const val commons_text = "1.13.0"
     const val commons_imaging = "1.0.0-alpha5"
-    const val reactor_kotlin = "1.2.2" // 실제 버전은 확인 필요"
-    const val janino = "3.1.12" // Janino 컴파일러 - logback 조건부 로깅에 필요
+    const val reactor_kotlin = "1.2.3"
     const val netty_resolver = "4.2.0.Final"
     const val shedlock = "6.3.1"
 }
