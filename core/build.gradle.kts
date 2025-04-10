@@ -32,7 +32,7 @@ dependencies {
     implementation("io.awspring.cloud:spring-cloud-aws-starter-s3:${Versions.io_awspring_version}")
     implementation("io.awspring.cloud:spring-cloud-aws-starter-sqs:${Versions.io_awspring_version}")
     implementation("io.hypersistence:hypersistence-utils-hibernate-62:${Versions.hypersistence_utils_62}")
-
+    
     implementation("org.postgresql:postgresql")
     implementation("com.h2database:h2")
 
